@@ -79,3 +79,82 @@ document.addEventListener('DOMContentLoaded', () => {
           if (events[dayString]) {
             td.classList.add('evento');
             const evtDiv = document.createElement('div');
+            evtDiv.classList.add('event-text');
+            evtDiv.textContent = events[dayString];
+            td.appendChild(evtDiv);
+          }
+
+          // Click event to open modal
+          td.addEventListener('click', () => {
+            openEventModal(dayString);
+          });
+
+          date++;
+        } else {
+          // Days from next month (optional)
+          td.classList.add('text-muted');
+          td.textContent = nextMonthDate++;
+          td.style.backgroundColor = '#222';
+          td.style.cursor = 'default';
+        }
+
+        tr.appendChild(td);
+      }
+      calendarBody.appendChild(tr);
+    }
+  }
+
+  function openEventModal(dateStr) {
+    eventDateInput.value = dateStr;
+    eventTextInput.value = events[dateStr] || '';
+    eventIndexInput.value = dateStr;
+    btnDeleteEvent.style.display = events[dateStr] ? 'inline-block' : 'none';
+    eventModal.show();
+  }
+
+  eventForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const dateStr = eventDateInput.value;
+    const text = eventTextInput.value.trim();
+
+    if (text) {
+      events[dateStr] = text;
+    } else {
+      delete events[dateStr];
+    }
+
+    saveEvents();
+    renderCalendar(currentYear, currentMonth);
+    eventModal.hide();
+  });
+
+  btnDeleteEvent.addEventListener('click', () => {
+    const dateStr = eventDateInput.value;
+    if (events[dateStr]) {
+      delete events[dateStr];
+      saveEvents();
+      renderCalendar(currentYear, currentMonth);
+      eventModal.hide();
+    }
+  });
+
+  prevMonthBtn.addEventListener('click', () => {
+    currentMonth--;
+    if (currentMonth < 0) {
+      currentMonth = 11;
+      currentYear--;
+    }
+    renderCalendar(currentYear, currentMonth);
+  });
+
+  nextMonthBtn.addEventListener('click', () => {
+    currentMonth++;
+    if (currentMonth > 11) {
+      currentMonth = 0;
+      currentYear++;
+    }
+    renderCalendar(currentYear, currentMonth);
+  });
+
+  renderCalendar(currentYear, currentMonth);
+});
