@@ -48,25 +48,6 @@
 
 ---
 
-## 📷 Screenshots
-
-### Página Inicial  
-![Página Inicial](./screenshots/inicio.png)
-
-### Calendário Dinâmico  
-![Calendário](./screenshots/calendario.png)
-
-### Suprimentos  
-![Suprimentos](./screenshots/suprimentos.png)
-
-### Colaboradores  
-![Colaboradores](./screenshots/colaboradores.png)
-
-### Atividades  
-![Atividades](./screenshots/atividades.png)
-
----
-
 ## 💻 Como usar
 
 Acesse o site pelo link: https://guia-de-sobrevivencia.vercel.app/
@@ -85,4 +66,4 @@ Contribuições são bem-vindas! Para contribuir envie um email para: ary_cordei
 📬 Contato
 Para dúvidas ou sugestões, abra uma issue no repositório ou entre em contato pelo email: ary_cordeiro@outlook.com
 
-<div align="center"> Desenvolvido com ❤️ por Ary Cordeiro </div> ```
+<div align="center"> Desenvolvido com ❤️ por Ary Cordeiro </div> 
