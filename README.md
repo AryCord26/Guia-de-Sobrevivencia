@@ -1,9 +1,5 @@
 # Guia de Sobrevivência 🛠️🌲
 
-![GitHub repo size](https://img.shields.io/github/repo-size/seuusuario/guiadesobrevivencia)
-![GitHub stars](https://img.shields.io/github/stars/seuusuario/guiadesobrevivencia?style=social)
-![GitHub license](https://img.shields.io/github/license/seuusuario/guiadesobrevivencia)
-
 ---
 
 > Um site local para gestão de atividades, suprimentos e colaboradores em cenários de crise, com estilo rústico e funcional.  
@@ -41,10 +37,6 @@
 ├── colaboradores.js
 └── atividades.js
 
-yaml
-Copiar
-Editar
-
 ---
 
 ## 🚀 Tecnologias
@@ -77,11 +69,8 @@ Editar
 
 ## 💻 Como usar
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/seuusuario/guiadesobrevivencia.git
-Abra o arquivo index.html no navegador (Google Chrome recomendado).
-
+Acesse o site pelo link: https://guia-de-sobrevivencia.vercel.app/
+   
 Navegue entre as páginas usando os botões na parte inferior.
 
 Adicione colaboradores, suprimentos, atividades e marque eventos no calendário.
@@ -91,25 +80,9 @@ Os dados são armazenados localmente no seu navegador (LocalStorage).
 Para resetar, limpe os dados do LocalStorage pelo console do navegador.
 
 🤝 Contribuindo
-Contribuições são bem-vindas! Para contribuir:
-
-Faça um fork do projeto.
-
-Crie uma branch com sua feature:
-git checkout -b minha-nova-feature
-
-Faça commit das alterações:
-git commit -m "Adiciona nova feature"
-
-Envie para o seu fork:
-git push origin minha-nova-feature
-
-Abra um Pull Request.
-
-📄 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para detalhes.
+Contribuições são bem-vindas! Para contribuir envie um email para: ary_cordeiro@outlook.com
 
 📬 Contato
-Para dúvidas ou sugestões, abra uma issue no repositório ou entre em contato.
+Para dúvidas ou sugestões, abra uma issue no repositório ou entre em contato pelo email: ary_cordeiro@outlook.com
 
-<div align="center"> Desenvolvido com ❤️ por [Seu Nome] </div> ```
+<div align="center"> Desenvolvido com ❤️ por Ary Cordeiro </div> ```
