@@ -1,16 +1,62 @@
 body {
-    background-color: #1b1b1b;
-    color: #e0e0e0;
-    font-family: 'Courier New', Courier, monospace;
-    background-image: url('../img/textura-rustica.jpg'); /* opcional: textura rústica */
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    background-color: #1c1c1c; /* Preto fosco */
+    color: #f0e68c; /* Amarelo queimado */
+    font-family: 'Courier New', Courier, monospace; /* Estilo máquina de escrever */
+}
+
+h1, h2, h3, h4 {
+    color: #f0e68c;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.container {
+    background-color: #2f2f2f; /* Cinza escuro */
+    border: 2px solid #f0e68c;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-control, .form-select {
+    background-color: #333;
+    color: #f0e68c;
+    border: 1px solid #f0e68c;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #ffd700; /* Dourado */
+    box-shadow: none;
+    background-color: #444;
+    color: #fff8dc; /* Bege claro */
 }
 
 .btn-outline-warning {
-    border-radius: 12px;
-    font-weight: bold;
+    border-radius: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
+}
+
+.list-group-item {
+    border: 1px solid #f0e68c;
+    background-color: #333;
+}
+
+.list-group-item button {
+    margin-left: 10px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.btn:hover {
+    background-color: #f0e68c;
+    color: #1c1c1c;
+    font-weight: bold;
+}
+
+hr {
+    border-color: #f0e68c;
 }
