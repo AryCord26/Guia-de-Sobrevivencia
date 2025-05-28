@@ -1,43 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Calendário - Guia de Sobrevivência</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      /* Ajustes específicos para o calendário */
+      #calendar {
+        max-width: 700px;
+        margin: 0 auto;
+        user-select: none;
+      }
+      #calendar table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      #calendar th,
+      #calendar td {
+        border: 1px solid #f0e68c;
+        width: 14.28%;
+        height: 100px;
+        vertical-align: top;
+        padding: 5px;
+        cursor: pointer;
+        background-color: #333;
+        color: #f0e68c;
+        position: relative;
+      }
+      #calendar th {
+        background-color: #444;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      #calendar td.today {
+        background-color: #ffd700;
+        color: #1c1c1c;
+        font-weight: bold;
+      }
+      #calendar td.evento {
+        border: 2px solid #ffd700;
+      }
+      #calendar .date-number {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+      #calendar .event-text {
+        font-size: 0.75rem;
+        background-color: #555;
+        padding: 2px 4px;
+        border-radius: 3px;
+        margin-top: 5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      /* Modal override to match rústico */
+      .modal-content {
+        background-color: #2f2f2f;
+        color: #f0e68c;
+        border: 2px solid #f0e68c;
+      }
+      .modal-header,
+      .modal-footer {
+        border-color: #f0e68c;
+      }
+      .form-control,
+      .form-select {
+        background-color: #333;
+        color: #f0e68c;
+        border: 1px solid #f0e68c;
+      }
+      .form-control:focus {
+        background-color: #444;
+        color: #fff8dc;
+        box-shadow: none;
+        border-color: #ffd700;
+      }
+    </style>
 </head>
 <body class="bg-dark text-light">
+  <div class="container py-4">
+    <h1 class="mb-4 text-center">Calendário de Sobrevivência</h1>
 
-    <div class="container py-4">
-        <h1 class="mb-4">Calendário de Eventos</h1>
+    <div id="calendar">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <button id="prevMonth" class="btn btn-outline-warning">&lt; Mês Anterior</button>
+        <h3 id="monthYear"></h3>
+        <button id="nextMonth" class="btn btn-outline-warning">Próximo Mês &gt;</button>
+      </div>
 
-        <form id="formEvento" class="mb-4">
-            <div class="mb-3">
-                <label for="data" class="form-label">Data</label>
-                <input type="date" class="form-control" id="data" required>
-            </div>
-            <div class="mb-3">
-                <label for="descricao" class="form-label">Descrição</label>
-                <input type="text" class="form-control" id="descricao" required>
-            </div>
-            <button type="submit" class="btn btn-outline-warning">Adicionar Evento</button>
-        </form>
-
-        <h3>Eventos Registrados:</h3>
-        <ul id="listaEventos" class="list-group"></ul>
-
-        <hr>
-
-        <!-- Navegação -->
-        <div class="d-grid gap-2">
-            <a href="index.html" class="btn btn-outline-warning">Início</a>
-            <a href="suprimentos.html" class="btn btn-outline-warning">Suprimentos</a>
-            <a href="colaboradores.html" class="btn btn-outline-warning">Colaboradores</a>
-            <a href="atividades.html" class="btn btn-outline-warning">Atividades</a>
-        </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Dom</th>
+            <th>Seg</th>
+            <th>Ter</th>
+            <th>Qua</th>
+            <th>Qui</th>
+            <th>Sex</th>
+            <th>Sáb</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody"></tbody>
+      </table>
     </div>
 
-    <script src="js/calendario.js"></script>
+    <!-- Modal para adicionar/editar evento -->
+    <div
+      class="modal fade"
+      id="eventModal"
+      tabindex="-1"
+      aria-labelledby="eventModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="eventForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="eventModalLabel">Adicionar Evento</h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white"
+                data-bs-dismiss="modal"
+                aria-label="Fechar"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="eventDate" class="form-label">Data</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="eventDate"
+                  readonly
+                  disabled
+                />
+              </div>
+              <div class="mb-3">
+                <label for="eventText" class="form-label">Descrição do Evento</label>
+                <textarea
+                  class="form-control"
+                  id="eventText"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <input type="hidden" id="eventIndex" />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger me-auto"
+                id="btnDeleteEvent"
+                style="display:none;"
+              >
+                Remover Evento
+              </button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cancelar
+              </button>
+              <button type="submit" class="btn btn-outline-warning">
+                Salvar Evento
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Navegação -->
+    <div class="d-grid gap-2">
+      <a href="index.html" class="btn btn-outline-warning">Início</a>
+      <a href="suprimentos.html" class="btn btn-outline-warning">Suprimentos</a>
+      <a href="colaboradores.html" class="btn btn-outline-warning">Colaboradores</a>
+      <a href="atividades.html" class="btn btn-outline-warning">Atividades</a>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/calendario.js"></script>
 </body>
 </html>
