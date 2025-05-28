@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário - Guia de Sobrevivência</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark text-light">
+
+    <div class="container py-4">
+        <h1 class="mb-4">Calendário de Eventos</h1>
+
+        <form id="formEvento" class="mb-4">
+            <div class="mb-3">
+                <label for="data" class="form-label">Data</label>
+                <input type="date" class="form-control" id="data" required>
+            </div>
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição</label>
+                <input type="text" class="form-control" id="descricao" required>
+            </div>
+            <button type="submit" class="btn btn-outline-warning">Adicionar Evento</button>
+        </form>
+
+        <h3>Eventos Registrados:</h3>
+        <ul id="listaEventos" class="list-group"></ul>
+
+        <hr>
+
+        <!-- Navegação -->
+        <div class="d-grid gap-2">
+            <a href="index.html" class="btn btn-outline-warning">Início</a>
+            <a href="suprimentos.html" class="btn btn-outline-warning">Suprimentos</a>
+            <a href="colaboradores.html" class="btn btn-outline-warning">Colaboradores</a>
+            <a href="atividades.html" class="btn btn-outline-warning">Atividades</a>
+        </div>
+    </div>
+
+    <script src="js/calendario.js"></script>
+</body>
+</html>
