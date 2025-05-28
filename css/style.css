@@ -1,0 +1,16 @@
+body {
+    background-color: #1b1b1b;
+    color: #e0e0e0;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url('../img/textura-rustica.jpg'); /* opcional: textura rústica */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.btn-outline-warning {
+    border-radius: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
