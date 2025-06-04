@@ -50,6 +50,8 @@
 
 ## 💻 Como usar
 
+Veja o video Pitch no link: https://youtu.be/3Lqt63bjqI4
+
 Acesse o site pelo link: https://guia-de-sobrevivencia.vercel.app/
    
 Navegue entre as páginas usando os botões na parte inferior.
