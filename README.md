@@ -53,6 +53,8 @@
 Veja o video Pitch no link: https://youtu.be/3Lqt63bjqI4
 
 Acesse o site pelo link: https://guia-de-sobrevivencia.vercel.app/
+
+Acesse o GitHub do projeto pelo link: https://github.com/AryCord26/Guia-de-Sobrevivencia
    
 Navegue entre as páginas usando os botões na parte inferior.
 
